@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Servisorria</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(17, 54, 71));
+        }
+        .box {
+            color: white;
+            position: absolute;
+            top: 87%;                                /* ajusta a altura do formulário */
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 15px;
+            width: 25%;
+        }
+        fieldset{
+            border: 3px solid dodgerblue;
+        }
+        legend{
+            border: 1px solid dodgerblue;
+            padding: 10px;
+            text-align: center;
+            background-color: dodgerblue;
+            border-radius: 8px;
+        }
+        .inputBox{
+            position: relative;
+        }
+        .inputUser{
+            background: none;
+            border: none;
+            border-bottom: 1px solid white;
+            outline: none;
+            color: white;
+            font-size: 15px;
+            width: 100%;
+            letter-spacing: 2px;
+        }
+        .labelInput{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            pointer-events: none;
+            transition: .5s;
+        }
+        .inputUser:focus ~ .labelInput, 
+        .inputUser:valid ~ .labelInput{
+            top: -20px;
+            font-size: 12px;
+            color: dodgerblue;
+        }
+        #data_evento{
+        border: none;
+        padding: 8px;
+        border-radius: 10px;
+        outline: none;
+        font-size: 15px;
+        width: 48%;
+         }
+        #convidados_evento{
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 15px;
+        width: 23%;         
+        } 
+        .labelNovo{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            pointer-events: none;
+            transition: .5s;
+        }
+       .inputUser:not(:placeholder-shown) ~ .labelNovo,
+       .inputUser:focus ~ .labelNovo {
+            top: -20px;
+            font-size: 12px;
+            color: dodgerblue;
+        }
+
+        .localizacao{
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 15px;
+        width: 50%;  
+            }
+            .aumentarCaixa{
+                border: none;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 15px;
+        width: 65%;  
+            }
+
+    
+        #submit{
+            background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(13, 154, 219));
+            width: 100%;
+            border: none;
+            padding: 15px;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        #submit:hover{
+            background-image: linear-gradient(to right,rgb(172, 0, 29), rgb(195, 19, 86));
+        }
+    </style>
+</head>
+<body>
+                            <!--Importando Script Jquery-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script> 
+                            <!--Importando Script Jquery-->
+
+    <div class="box">
+        <form action="">
+            <fieldset>
+                <legend><b>Servissoria Eventos</b></legend>
+                <br>
+                <div class="inputBox">
+                    <input type="text" name="nome" id="nome" class="inputUser" required>
+                    <label for="nome" class="labelInput">Seu nome</label>
+                </div>
+                <br><br>
+                <div class="inputBox">
+                    <input type="e-mail" name="email" id="email" class="inputUser" required>
+                    <label for="email" class="labelInput">Seu e-mail</label>
+                </div>
+                <br><br>
+                <div class="inputBox">
+                    <input type="tel" name="telefone" id="telefone" class="inputUser" required>
+                    <label for="telefone" class="labelInput">Seu telefone</label>
+                </div>
+                <br>
+                <p>Tipo do evento</p>
+                <input type="radio" id="infantil" name="evento" value="infantil" required checked>     <!-- criar função para quando for pressionada, desmarcar as outras -->
+                <label for="infantil">Festa infantil</label>
+                <br>
+                <input type="radio" id="debutante" name="evento" value="debutante" required>
+                <label for="debutante">Debutante</label>
+                <br>
+                <input type="radio" id="casamento" name="evento" value="casamento" required>
+                <label for="casamento">Casamento</label>
+                <br>
+                <input type="radio" id="social" name="evento" value="social" required>
+                <label for="social">Social</label>
+                <br>
+                <input type="radio" id="outro" name="evento" value="outro" required>
+                <label for="outro">Outro</label>
+                <br><br>
+                <p>Local do evento</p>
+                <label for="cep">CEP</label>
+                <input id="cep" type="text" class="localizacao" required/>
+                <br>
+                <label for="logradouro">Endereço</label>
+                <input id="logradouro" type="text" class="aumentarCaixa" required/>
+                <br>
+                <label for="numero">Número</label>
+                <input id="numero" type="text" class="localizacao" />
+                <br>
+                <label for="complemento">Complem.</label>
+                <input id="complemento" type="text" class="localizacao"/>
+                <br>
+                <label for="bairro">Bairro</label>
+                <input id="bairro" type="text" class="localizacao" required/>
+                <br>
+                <label for="cidade">Cidade</label>
+                <input id="cidade" type="text" class="localizacao" required/>
+                <br>
+                <label for="uf">Estado</label>
+                <select id="uf" class="localizacao" required >
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                </select>
+
+                <script type="text/javascript">
+                    $("#cep").focusout(function(){
+                        //Início do Comando AJAX
+                        $.ajax({
+                            //O campo URL diz o caminho de onde virá os dados
+                            //É importante concatenar o valor digitado no CEP
+                            url: 'https://viacep.com.br/ws/'+$(this).val()+'/json/unicode/',
+                            //Aqui você deve preencher o tipo de dados que será lido,
+                            //no caso, estamos lendo JSON.
+                            dataType: 'json',
+                            //SUCESS é referente a função que será executada caso
+                            //ele consiga ler a fonte de dados com sucesso.
+                            //O parâmetro dentro da função se refere ao nome da variável
+                            //que você vai dar para ler esse objeto.
+                            success: function(resposta){
+                                //Agora basta definir os valores que você deseja preencher
+                                //automaticamente nos campos acima.
+                                $("#logradouro").val(resposta.logradouro);
+                                $("#complemento").val(resposta.complemento);
+                                $("#bairro").val(resposta.bairro);
+                                $("#cidade").val(resposta.localidade);
+                                $("#uf").val(resposta.uf);
+                                //Vamos incluir para que o Número seja focado automaticamente
+                                //melhorando a experiência do usuário
+                                $("#numero").focus();
+                            }
+                        });
+                    });
+                </script>
+
+                    <br><br>
+                <label for="data_evento">Data do evento</label>
+                <br>
+                <input type="date" name="data_evento" id="data_evento" value="2022-01-01" required>
+                <br><br>
+                <label for="convidados_evento">Quantos convidados são esperados?</label>
+                <input type="number" id="convidados_evento" name="convidados_evento"  max="300" value="50" step="25" required>  <!-- ajustar para que apareça o pop-up de limite logo quando der tab -->   
+                    <br>
+                    <p>Qual o horário do início e do fim do evento?</p>
+                        <input type="time" name="horario" id="horario" step="1800" class="inputUser" value="18:30" required>    <!-- criar comando que passe para a próxima caixa após o preenchimento-->
+                        <input type="time" name="horario" id="horario" step="1800" class="inputUser" value="23:30" required>
+                    <br>
+                    <p>Gostaria que sirva bebidas?</p>
+                    <input type="checkbox" id="bebidas" name="evento" value="bebidas" checked>
+                    <label for="bebidas">Refrigerante, suco e água</label>
+                    <br>
+                    <input type="checkbox" id="cerveja" name="evento" value="cerveja" >
+                    <label for="cerveja">Cerveja</label>
+                    <br>
+                    <input type="checkbox" id="vinho" name="evento" value="vinho" >
+                    <label for="vinho">Vinho</label>
+                    <br>
+                    <input type="checkbox" id="nenhum" name="evento" value="nenhum" >
+                    <label for="nenhum">Não, obrigado(a)</label>
+                    <br>
+                    <p>Gostaria que sirva comidas?</p>
+                    <input type="checkbox" id="comidas" name="evento" value="comidas" >
+                    <label for="comidas">Pratos quentes</label>
+                    <br>
+                    <input type="checkbox" id="salgados" name="evento" value="salgados" >
+                    <label for="salgados">Salgados</label>
+                    <br>
+                    <input type="checkbox" id="nenhum" name="evento" value="nenhum" checked>
+                    <label for="nenhum">Não, obrigado(a)</label>
+                    <br>
+                    <p>Gostaria de auxiliares?</p>
+                    <input type="checkbox" id="cozinheira" name="evento" value="cozinheira" >
+                    <label for="cozinheira">Cozinheira</label>
+                    <br>
+                    <input type="checkbox" id="copeira" name="evento" value="copeira" >
+                    <label for="copeira">Copeira</label>
+                    <br>
+                    <input type="checkbox" id="faxineira" name="evento" value="faxineira" checked>
+                    <label for="faxineira">Faxineira</label>
+                    <br>
+                    <input type="checkbox" id="nenhum" name="evento" value="nenhum" >
+                    <label for="nenhum">Não, obrigado(a)</label>
+                    <br>
+                    <p>Quer curtir sem se preocupar?</p>
+                    <input type="checkbox" id="recepcionista" name="evento" value="recepcionista" >
+                    <label for="recepcionista">Hostess</label>
+                    <br>
+                    <input type="checkbox" id="seguranca" name="evento" value="seguranca" >
+                    <label for="seguranca">Segurança</label>
+                    <br>
+                    <input type="checkbox" id="manobrista" name="evento" value="manobrista" >
+                    <label for="manobrista">Manobrista</label>
+                    <br>
+                    <input type="checkbox" id="nenhum" name="evento" value="nenhum" checked>
+                    <label for="nenhum">Não, obrigado(a)</label>
+                    <br><br><br>
+                         <div class="inputBox">
+                    <input type="text" id="complementares" name="complementares" class="inputUser" placeholder=" " >  
+                    <label for="complementares" class="labelNovo">Informações complementares</label>     
+                         </div>
+                    <br><br>
+                <input type="submit" name="submit" id="submit">
+            </fieldset>
+        </form>
+    </div>
+    
+</body>
+</html>
